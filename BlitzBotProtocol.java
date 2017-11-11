@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import hlt.*;
 
 public class BlitzBotProtocol {
-	final Networking net; final GameMap game; ArrayList <Move> MoveList = new ArrayList();
+	final GameMap game; ArrayList <Move> MoveList = new ArrayList();
 	Player enemyplayer = null;
-	public BlitzBotProtocol(GameMap game, Networking net, ArrayList <Move> moveList ) {
-		this.game = game; this.net = net; this.MoveList = moveList;
+	public BlitzBotProtocol(GameMap game, ArrayList <Move> moveList ) {
+		this.game = game; this.MoveList = moveList;
 
 		for(Player player : game.getAllPlayers()) {
 			if(!game.getMyPlayer().equals(player)) {
@@ -22,8 +22,8 @@ public class BlitzBotProtocol {
 
 	}
 
-	public ArrayList<Move> blitz() {
-		//this code somehow magically breaks the result
+	public void blitz() {
+		
 		for(Ship ship : game.getMyPlayer().getShips().values()) {
 			for(Ship enemyship : enemyplayer.getShips().values()) {
 				if(enemyship.getDockingStatus()==Ship.DockingStatus.Undocked) {
@@ -95,7 +95,7 @@ public class BlitzBotProtocol {
 		
 		
 
-return MoveList;
+return;
 	
 
 
