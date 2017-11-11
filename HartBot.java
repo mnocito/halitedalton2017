@@ -14,9 +14,9 @@ public class HartBot {
                     continue;
                 }
                 for (final Planet planet : gameMap.getAllPlanets().values()) {
-                	int mindist = 1000000;
+                	Double mindist = 100000.0;
                 	int j = 0;
-       final Map<Entity, Double> ebd = new TreeMap<>();
+        Map<Entity, Double> ebd = new TreeMap<>();
         ebd = nearbyEntitiesByDistance(ship);
        	Planet nearest_planet = null;
        	int plannum = 0;
