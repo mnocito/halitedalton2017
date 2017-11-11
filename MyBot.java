@@ -20,36 +20,15 @@ public class MyBot {
         for (;;) {
             moveList.clear();
             networking.updateMap(gameMap);
-
-            for (final Ship ship : gameMap.getMyPlayer().getShips().values()) {
-               
-
-                for(final Ship enemyship: gameMap.getAllPlayers(1).getShips().values()){
-
-                
-                   
-
-                    
-                    if (!enemyship.isdocked()) {
-                        continue;
-                    }
-                   
-
-                    
-
-                    final ThrustMove newThrustMove = Navigation.navigateShipTowardsTarget(gameMap, ship, enemyship.Position, Constants.MAX_SPEED/2, true, Double.PositiveInfinity,Math.PI/180.0);
-                    if (newThrustMove != null) {
-                        moveList.add(newThrustMove);
-                    }
-
-                    break;
-            }
+        if(gameMap.getallPlayers().size==2){
+        BlitzBotProtocol rush = new BlitzBotProtocol(gameMap, moveList);
+            rush.blitz();
         }
-        for(move in moveList){
-            if(move==null){
-                move = Navigation.navigateShipToShip(gameMap,gameMap.getAllPlayers(1).getShips.values(1));
+            else{
+            HartBot hart = new HartBot(gameMap, moveList);
+                hart.run();
             }
-        }
+            
             Networking.sendMoves(moveList);
         
         }
