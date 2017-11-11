@@ -17,15 +17,17 @@ public class MyBot {
         Log.log(initialMapIntelligence);
 
         final ArrayList<Move> moveList = new ArrayList<>();
+        BlitzBotProtocol rush = new BlitzBotProtocol(gameMap, moveList);
+        HartBot hart = new HartBot();
         for (;;) {
             moveList.clear();
             networking.updateMap(gameMap);
         if(gameMap.getAllPlayers().size()==2){
-        BlitzBotProtocol rush = new BlitzBotProtocol(gameMap, moveList);
+        
             rush.blitz();
         }
             else{
-            HartBot hart = new HartBot();
+           
                 hart.run(gameMap,moveList);
             }
             
