@@ -53,7 +53,7 @@ public class BlitzBotProtocol {
 					MoveList.add(newThrustMove);
 					break;
 				}
-				
+				/*
 					for (final Planet planet : game.getAllPlanets().values()) {
 		                  
 
@@ -79,7 +79,7 @@ public class BlitzBotProtocol {
 		             
 					
 				}
-				
+				*/
 			}
 
 
