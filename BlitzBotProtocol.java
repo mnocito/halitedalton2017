@@ -7,22 +7,8 @@ import java.util.ArrayList;
 import hlt.*;
 
 public class BlitzBotProtocol {
-	final GameMap game; ArrayList <Move> MoveList = new ArrayList();
-	Player enemyplayer = null;
-	public BlitzBotProtocol(GameMap game, ArrayList <Move> moveList ) {
-		this.game = game; this.MoveList = moveList;
 
-		for(Player player : game.getAllPlayers()) {
-			if(!game.getMyPlayer().equals(player)) {
-				enemyplayer = player;
-				break;
-			}
-		}
-
-
-	}
-
-	public void blitz() {
+	public void blitz(final GameMap game, ArrayList<Move> MoveList) {
 		
 		for(Ship ship : game.getMyPlayer().getShips().values()) {
 			for(Ship enemyship : enemyplayer.getShips().values()) {
