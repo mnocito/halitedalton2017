@@ -32,7 +32,7 @@ public class HartBot {
                     break;
                 }
             }
-            Networking.sendMoves(moveList);
+            return;
         
     }
 }
