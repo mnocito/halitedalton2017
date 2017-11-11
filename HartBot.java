@@ -2,7 +2,7 @@ import hlt.*;
 
 import java.util.ArrayList;
 
-public class MyBot {
+public class HartBot {
 
     public void run(GameMap gameMap, ArrayList<Move> moveList) {
       
