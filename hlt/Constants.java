@@ -47,7 +47,7 @@ public class Constants {
     ////////////////////////////////////////////////////////////////////////
     // Implementation-specific constants
 
-    public static final double FORECAST_FUDGE_FACTOR = SHIP_RADIUS + 7;
+    public static final double FORECAST_FUDGE_FACTOR = SHIP_RADIUS + 3;
     public static final int MAX_NAVIGATION_CORRECTIONS = 90;
 
     /**
