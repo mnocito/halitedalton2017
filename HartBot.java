@@ -24,7 +24,7 @@ public class HartBot {
        		if(mindist > ebd.get(i))
        		{
        			mindist = ebd.get(i);
-       			plannum = = i;
+       			plannum = i;
        		}
        		nearest_planet = ebd.keySet(plannum);
        	}       		
