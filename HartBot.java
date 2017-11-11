@@ -50,7 +50,7 @@ public class HartBot {
             return;
         
     }
-}
+
 
 public Map<Double, Entity> nearbyEntitiesByDistance(final Entity entity) {
         final Map<Entity, Double> entityByDistance = new TreeMap<>();
@@ -63,3 +63,4 @@ public Map<Double, Entity> nearbyEntitiesByDistance(final Entity entity) {
         }
         return entityByDistance;
     }
+}
