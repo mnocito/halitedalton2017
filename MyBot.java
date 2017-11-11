@@ -17,7 +17,7 @@ public class MyBot {
         Log.log(initialMapIntelligence);
 
         final ArrayList<Move> moveList = new ArrayList<>();
-        BlitzBotProtocol rush = new BlitzBotProtocol(gameMap, moveList);
+        BlitzBotProtocol rush = new BlitzBotProtocol();
         HartBot hart = new HartBot();
         for (;;) {
             moveList.clear();
