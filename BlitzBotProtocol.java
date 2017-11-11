@@ -41,7 +41,7 @@ public class BlitzBotProtocol {
 						break;
 					}
 
-					final ThrustMove thrust = Navigation.navigateShipToDock(game, ship, planet, Constants.MAX_SPEED/2);
+					final ThrustMove thrust = Navigation.navigateShipToDock(game, ship, planet, Constants.MAX_SPEED);
 					if (thrust != null) {
 						MoveList.add(thrust);
 
@@ -55,7 +55,7 @@ public class BlitzBotProtocol {
 				break;
 				}
 				
-				final ThrustMove newThrustMove = Navigation.navigateShipTowardsTarget(game, ship, ship.getClosestPoint(enemyship), Constants.MAX_SPEED/2, true, Constants.MAX_NAVIGATION_CORRECTIONS, Math.PI/180.0);
+				final ThrustMove newThrustMove = Navigation.navigateShipTowardsTarget(game, ship, ship.getClosestPoint(enemyship), Constants.MAX_SPEED, true, Constants.MAX_NAVIGATION_CORRECTIONS, Math.PI/180.0);
 			
 				if(newThrustMove!=null) {
 					MoveList.add(newThrustMove);
@@ -76,7 +76,7 @@ public class BlitzBotProtocol {
 		                     break;
 		                 }
 
-		                 final ThrustMove thrust = Navigation.navigateShipToDock(game, ship, planet, Constants.MAX_SPEED/2);
+		                 final ThrustMove thrust = Navigation.navigateShipToDock(game, ship, planet, Constants.MAX_SPEED);
 		                 if (thrust != null) {
 		                     MoveList.add(thrust);
 		                     
