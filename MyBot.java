@@ -25,8 +25,8 @@ public class MyBot {
             rush.blitz();
         }
             else{
-            HartBot hart = new HartBot(gameMap, moveList);
-                hart.run();
+            HartBot hart = new HartBot();
+                hart.run(gameMap,moveList);
             }
             
             Networking.sendMoves(moveList);
