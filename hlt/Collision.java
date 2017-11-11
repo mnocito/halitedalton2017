@@ -35,7 +35,7 @@ public class Collision {
             // Start and end are the same point
             return start.getDistanceTo(circle) <= circleRadius + fudge;
         }
-        if(entity instanceof Planet){
+        if(circle instanceof Planet){
         fudge = 1;
         }
         // Time along segment when closest to the circle (vertex of the quadratic)
