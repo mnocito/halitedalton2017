@@ -20,7 +20,7 @@ public class MyBot {
         for (;;) {
             moveList.clear();
             networking.updateMap(gameMap);
-        if(gameMap.getallPlayers().size==2){
+        if(gameMap.getAllPlayers().size()==2){
         BlitzBotProtocol rush = new BlitzBotProtocol(gameMap, moveList);
             rush.blitz();
         }
