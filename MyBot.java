@@ -24,7 +24,7 @@ public class MyBot {
             networking.updateMap(gameMap);
         if(gameMap.getAllPlayers().size()==2){
         
-            rush.blitz();
+            rush.blitz(gameMap, moveList);
         }
             else{
            
