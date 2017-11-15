@@ -1,5 +1,4 @@
-package halite2;
-import halite2.hlt.*;
+import hlt.*;
 
 import java.util.*;
 
