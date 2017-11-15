@@ -1,4 +1,4 @@
-package halite2.hlt;
+package hlt;
 
 import java.util.ArrayList;
 import java.util.List;
