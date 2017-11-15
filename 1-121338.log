@@ -1,0 +1,36 @@
+[
+ {
+  "Error": {
+   "Message": "ERRORED! Got Exception (if any): ERROR: Bot #0: Received invalid character '\tat MyBot.main(MyBot.java:20)\t'. (at character 1.)\nInput received from bot:\n\tat MyBot.main(MyBot.java:20)\n^; Response received (if any): \tat MyBot.main(MyBot.java:20)Caused by: java.lang.ClassNotFoundException: BlitzBotProtocol\tat java.net.URLClassLoader.findClass(URLClassLoader.java:381)\tat java.lang.ClassLoader.loadClass(ClassLoader.java:424)\tat sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:335)\tat java.lang.ClassLoader.loadClass(ClassLoader.java:357)\t... 1 more",
+   "Turn": 1
+  },
+  "Frames": [
+   {
+    "Time": 211,
+    "Turn": 0
+   },
+   {
+    "Time": 0
+   }
+  ],
+  "PlayerID": 0,
+  "PlayerName": "Exception in thread \"main\" jav"
+ },
+ {
+  "Error": {
+   "Message": "ERRORED! Got Exception (if any): ERROR: Bot #1: Received invalid character '\tat MyBot.main(MyBot.java:20)\t'. (at character 1.)\nInput received from bot:\n\tat MyBot.main(MyBot.java:20)\n^; Response received (if any): \tat MyBot.main(MyBot.java:20)Caused by: java.lang.ClassNotFoundException: BlitzBotProtocol\tat java.net.URLClassLoader.findClass(URLClassLoader.java:381)\tat java.lang.ClassLoader.loadClass(ClassLoader.java:424)\tat sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:335)\tat java.lang.ClassLoader.loadClass(ClassLoader.java:357)\t... 1 more",
+   "Turn": 1
+  },
+  "Frames": [
+   {
+    "Time": 221,
+    "Turn": 0
+   },
+   {
+    "Time": 0
+   }
+  ],
+  "PlayerID": 1,
+  "PlayerName": "Exception in thread \"main\" jav"
+ }
+]

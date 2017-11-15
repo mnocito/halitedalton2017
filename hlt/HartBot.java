@@ -1,4 +1,5 @@
-import hlt.*;
+package halite2;
+import halite2.hlt.*;
 
 import java.util.*;
 
@@ -13,20 +14,21 @@ public class HartBot {
                 if (ship.getDockingStatus() != Ship.DockingStatus.Undocked) {
                     continue;
                 }
-                for (final Planet planet : gameMap.getAllPlanets().values()) {
-                	Double mindist = 100000.0;
-                	int j = 0;
-        Map<Entity, Double> ebd = new TreeMap<>();
-        ebd = nearbyEntitiesByDistance(ship);
+                
+                	double mindist = Double.POSITIVE_INFINITY;
+                
+        Map<Integer, Planet> ebd = new TreeMap<>();
+        ebd = nearbyEntitiesByDistance(gameMap,ship);
+       
        	Planet nearest_planet = null;
        	int plannum = 0;
        	for (int i = 0;i<ebd.size();i++) {
-       		if(mindist > ebd.get(i))
+       		if(mindist > ebd.get(i).getdistance())
        		{
-       			mindist = ebd.get(i);
+       			mindist = ebd.get(i).getdistance();
        			plannum = i;
        		}
-       		nearest_planet = ebd.keySet(plannum);
+       		nearest_planet = ebd.get(plannum);
        	}       		
 
 
@@ -45,21 +47,25 @@ public class HartBot {
                     }
 
                     break;
-                }
+                
             }
             return;
         
     }
 
 
-public Map<Double, Entity> nearbyEntitiesByDistance(final Entity entity) {
-        final Map<Entity, Double> entityByDistance = new TreeMap<>();
-
-        for (final Planet planet : planets.values()) {
+public Map<Integer, Planet> nearbyEntitiesByDistance(final GameMap gameMap, final Entity entity) {
+        final Map<Integer, Planet> entityByDistance = new TreeMap<>();
+        int index = 0;
+        Planet planet = null;
+        for (int i = 0; i < gameMap.planets.size(); i++) {
+        	planet = gameMap.planets.get(i);
+        planet.setdistance(entity.getDistanceTo(planet));
             if (planet.equals(entity)) {
                 continue;
             }
-            entityByDistance.put(planet,entity.getDistanceTo(planet));
+            index++;
+            entityByDistance.put(index,planet);
         }
         return entityByDistance;
     }

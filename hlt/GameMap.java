@@ -1,4 +1,4 @@
-package hlt;
+package halite2.hlt;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class GameMap {
     private final int playerId;
     private final List<Player> players;
     private final List<Player> playersUnmodifiable;
-    private final Map<Integer, Planet> planets;
+    public final Map<Integer, Planet> planets;
     private final List<Ship> allShips;
     private final List<Ship> allShipsUnmodifiable;
 
