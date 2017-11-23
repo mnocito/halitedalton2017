@@ -9,7 +9,7 @@ public class Planet extends Entity {
     private final int currentProduction;
     private final int dockingSpots;
     private final List<Integer> dockedShips;
-    private double distance = 0;
+
     public Planet(final int owner, final int id, final double xPos, final double yPos, final int health,
                   final double radius, final int dockingSpots, final int currentProduction,
                   final int remainingProduction, final List<Integer> dockedShips) {
@@ -21,12 +21,7 @@ public class Planet extends Entity {
         this.remainingProduction = remainingProduction;
         this.dockedShips = Collections.unmodifiableList(dockedShips);
     }
-public double getdistance() {
-        return this.distance;
-    }
-    public void setdistance(double distance) {
-        this.distance=distance;
-    }
+
     public int getRemainingProduction() {
         return remainingProduction;
     }

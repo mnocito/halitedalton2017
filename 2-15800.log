@@ -1,0 +1,70 @@
+[
+ {
+  "Error": {
+   "Message": "ERRORED! Got Exception (if any): ERROR: Bot #0: Received invalid character 'Exception in thread \"main\" java.lang.NoClassDefFoundError: hlt/NavigationE'. (at character 1.)\nInput received from bot:\nException in thread \"main\" java.lang.NoClassDefFoundError: hlt/Navigation\n^; Response received (if any): Exception in thread \"main\" java.lang.NoClassDefFoundError: hlt/Navigation",
+   "Turn": 1
+  },
+  "Frames": [
+   {
+    "Time": 582,
+    "Turn": 0
+   },
+   {
+    "Time": 27
+   }
+  ],
+  "PlayerID": 0,
+  "PlayerName": "Tamagocchi"
+ },
+ {
+  "Error": {
+   "Message": "ERRORED! Got Exception (if any): ERROR: Bot #1: Received invalid character 'Exception in thread \"main\" java.lang.NoClassDefFoundError: hlt/NavigationE'. (at character 1.)\nInput received from bot:\nException in thread \"main\" java.lang.NoClassDefFoundError: hlt/Navigation\n^; Response received (if any): Exception in thread \"main\" java.lang.NoClassDefFoundError: hlt/Navigation\tat HartBot.run(HartBot.java:35)\tat MyBot.main(MyBot.java:31)Caused by: java.lang.ClassNotFoundException: hlt.Navigation",
+   "Turn": 1
+  },
+  "Frames": [
+   {
+    "Time": 631,
+    "Turn": 0
+   },
+   {
+    "Time": 24
+   }
+  ],
+  "PlayerID": 1,
+  "PlayerName": "Tamagocchi"
+ },
+ {
+  "Error": {
+   "Message": "ERRORED! Got Exception (if any): ERROR: Bot #2: Received invalid character 'Exception in thread \"main\" java.lang.NoClassDefFoundError: hlt/NavigationE'. (at character 1.)\nInput received from bot:\nException in thread \"main\" java.lang.NoClassDefFoundError: hlt/Navigation\n^; Response received (if any): Exception in thread \"main\" java.lang.NoClassDefFoundError: hlt/Navigation",
+   "Turn": 1
+  },
+  "Frames": [
+   {
+    "Time": 689,
+    "Turn": 0
+   },
+   {
+    "Time": 65
+   }
+  ],
+  "PlayerID": 2,
+  "PlayerName": "Tamagocchi"
+ },
+ {
+  "Error": {
+   "Message": "ERRORED! Got Exception (if any): ERROR: Bot #3: Received invalid character 'Exception in thread \"main\" java.lang.NoClassDefFoundError: hlt/NavigationE'. (at character 1.)\nInput received from bot:\nException in thread \"main\" java.lang.NoClassDefFoundError: hlt/Navigation\n^; Response received (if any): Exception in thread \"main\" java.lang.NoClassDefFoundError: hlt/Navigation",
+   "Turn": 1
+  },
+  "Frames": [
+   {
+    "Time": 686,
+    "Turn": 0
+   },
+   {
+    "Time": 54
+   }
+  ],
+  "PlayerID": 3,
+  "PlayerName": "Tamagocchi"
+ }
+]
