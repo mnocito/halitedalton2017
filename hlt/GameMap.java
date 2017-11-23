@@ -12,7 +12,7 @@ public class GameMap {
     private final int playerId;
     private final List<Player> players;
     private final List<Player> playersUnmodifiable;
-    public final Map<Integer, Planet> planets;
+    private final Map<Integer, Planet> planets;
     private final List<Ship> allShips;
     private final List<Ship> allShipsUnmodifiable;
 

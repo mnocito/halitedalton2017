@@ -3,69 +3,106 @@ import hlt.*;
 import java.util.*;
 
 public class HartBot {
-
-    public void run(GameMap gameMap, ArrayList<Move> moveList) {
-      
-
-        // We now have 1 full minute to analyse the initial map.
-
-            for (final Ship ship : gameMap.getMyPlayer().getShips().values()) {
-                if (ship.getDockingStatus() != Ship.DockingStatus.Undocked) {
-                    continue;
-                }
-                
-                	double mindist = Double.POSITIVE_INFINITY;
-                
-        Map<Integer, Planet> ebd = new TreeMap<>();
-        ebd = nearbyEntitiesByDistance(gameMap,ship);
-       
-       	Planet nearest_planet = null;
-       	int plannum = 0;
-       	for (int i = 0;i<ebd.size();i++) {
-       		if(mindist > ebd.get(i).getdistance())
-       		{
-       			mindist = ebd.get(i).getdistance();
-       			plannum = i;
-       		}
-       		nearest_planet = ebd.get(plannum);
-       	}       		
+	GameMap gameMap; ArrayList<Move> moveList;
+	public HartBot(final GameMap gameMap, final ArrayList<Move> moveList) {
+		this.gameMap=gameMap; this.moveList=moveList;
+	}
+	public void run() {
 
 
-                    
-                    if (nearest_planet.isOwned()) {
-                        continue;
-                    }
-                    if (ship.canDock(nearest_planet) && !nearest_planet.isOwned()) {
-                        moveList.add(new DockMove(ship, nearest_planet));
-                        break;
-                    }
+		// We now have 1 full minute to analyse the initial map.
 
-                    final ThrustMove newThrustMove = Navigation.navigateShipToDock(gameMap, ship, nearest_planet, Constants.MAX_SPEED);
-                    if (newThrustMove != null) {
-                        moveList.add(newThrustMove);
-                    }
+		for (final Ship ship : gameMap.getMyPlayer().getShips().values()) {
+			if (ship.getDockingStatus() != Ship.DockingStatus.Undocked) {
+				continue;
+			}
+			
 
-                    break;
-                
-            }
-            return;
-        
-    }
+			Map<Integer, Planet> ebd = new TreeMap<>();
+			ebd = nearbyEntitiesByDistance(gameMap,ship);
+			for(Planet planet : ebd.values()) {
+				if(planet.equals(null)) {
+					continue;
+				}
+				if (planet.isOwned()) {
+					continue;
+				}
+				else if (ship.canDock(planet) && !planet.isOwned()) {
+					moveList.add(new DockMove(ship, planet));
+					break;
+				}
+				else{
+					final ThrustMove newThrustMove = Navigation.navigateShipToDock(gameMap, ship, planet, Constants.MAX_SPEED);
+					if (newThrustMove != null) {
+						moveList.add(newThrustMove);
+						
+					}
+					break;
+				}
+			}
+
+		}
+		return;
+
+	}
 
 
-public Map<Integer, Planet> nearbyEntitiesByDistance(final GameMap gameMap, final Entity entity) {
-        final Map<Integer, Planet> entityByDistance = new TreeMap<>();
-        int index = 0;
-        Planet planet = null;
-        for (int i = 0; i < gameMap.planets.size(); i++) {
-        	planet = gameMap.planets.get(i);
-        planet.setdistance(entity.getDistanceTo(planet));
-            if (planet.equals(entity)) {
-                continue;
-            }
-            index++;
-            entityByDistance.put(index,planet);
-        }
-        return entityByDistance;
-    }
+	public Map<Integer, Planet> nearbyEntitiesByDistance(final GameMap gameMap, final Entity entity) {
+		final Map<Integer, Planet> map = gameMap.getAllPlanets();
+		final Map<Integer, Planet> entityByDistance = new TreeMap<>();
+
+		for (int i = 0; i < map.size(); i++) {
+			int index = 0;
+			
+			for(int x = 0; x<map.size();x++){
+				if (map.get(i).equals(map.get(x))) {
+					continue;
+				}
+				else if(map.get(i).getDistanceTo(entity)>map.get(x).getDistanceTo(entity)){
+					index++;
+				}
+
+			}
+
+
+			entityByDistance.put(index,map.get(i));
+
+		}
+		return entityByDistance;
+	}
+	
+	//get list of nearest ships
+	public List<Ship> shipsbydistance (final GameMap gameMap, final Ship ship){
+		ArrayList<Ship> shiplist = new ArrayList<Ship>();
+		//add all ships to shiplist
+		shiplist.addAll(gameMap.getAllShips());
+		//final list by distance
+		ArrayList<Ship> finalshiplist = new ArrayList<Ship>();
+		for(int i =0; i <shiplist.size(); i++) {
+			finalshiplist.add(null);
+		}
+
+		//go through each ship
+		for (int i = 0; i < shiplist.size(); i++) {
+			int index = 0;
+			//order ship based on relation to other ships
+			for(int x = 0; x<shiplist.size();x++){
+				if (shiplist.get(i).equals(shiplist.get(x))||shiplist.get(i).equals(ship)) {
+					continue;
+				}
+				else if(shiplist.get(i).getDistanceTo(ship)>shiplist.get(x).getDistanceTo(ship)){
+					index++;
+				}
+
+			}
+
+			//add ship
+			finalshiplist.set(index,shiplist.get(i));
+
+		}
+		//return final list
+		return finalshiplist;
+
+	}
+	
 }

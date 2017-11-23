@@ -30,14 +30,14 @@ public class Collision {
                             - (startX * centerX) + (endX * centerX)
                             + square(startY) - (startY * endY)
                             - (startY * centerY) + (endY * centerY));
-
+        if(circle instanceof Planet){
+            fudge = 1;
+        }
         if (a == 0.0) {
             // Start and end are the same point
             return start.getDistanceTo(circle) <= circleRadius + fudge;
         }
-        if(circle instanceof Planet){
-        fudge = 1;
-        }
+
         // Time along segment when closest to the circle (vertex of the quadratic)
         final double t = Math.min(-b / (2 * a), 1.0);
         if (t < 0) {
